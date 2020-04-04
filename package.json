@@ -1,0 +1,19 @@
+{
+  "name": "automation",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "node_modules\\.bin\\cypress run",
+    "headTest": "npm run test -- --headed",
+    "chromeTest": "npm run test -- --browser chrome",
+    "recordDashboardTest": "npm run test  -- --record --key bd58aadc-01ff-41ba-91f3-c6858d3a1052 --reporter mochawesome"
+  },
+  "author": "Marvin",
+  "license": "ISC",
+  "devDependencies": {
+    "cypress": "^3.4.1",
+    "mocha": "^5.2.0",
+    "mochawesome": "^4.0.1"
+  }
+}

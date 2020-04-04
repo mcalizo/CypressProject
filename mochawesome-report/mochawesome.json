@@ -1,0 +1,99 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2019-12-08T07:16:59.912Z",
+    "end": "2019-12-08T07:17:18.081Z",
+    "duration": 18169,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "8ebc36b8-c391-4788-be78-8b0813b85e5e",
+      "title": "",
+      "fullFile": "",
+      "file": "",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "5dc84501-2488-4726-9995-c5293a65783e",
+          "title": "My Second Test",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "My First Test case",
+              "fullTitle": "My Second Test My First Test case",
+              "timedOut": null,
+              "duration": 14576,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "var homePage = new _HomePage.default();\nvar productsPage = new _ProductsPage.default();\ncy.visit(Cypress.env('url'));\nhomePage.getEditBox().type(this.data.name);\nhomePage.getGender().select(this.data.gender);\nhomePage.getTwoWayDataBinding().should('have.value', this.data.name);\nhomePage.getEditBox().should('have.attr', 'minlength', '2');\nhomePage.getEntrepreneur().should('be.disabled');\nhomePage.getShopTab().click();\nthis.data.productName.forEach(function (element) {\n  cy.selectProduct(element);\n});\nproductsPage.getCheckOut().click();\nvar sum = 0;\nproductsPage.getSum().each(function ($el, index, $list) {\n  var amount = $el.text();\n  var res = amount.split(\" \");\n  res = res[1].trim();\n  sum = Number(sum) + Number(res);\n}).then(function () {\n  cy.log(sum);\n});\ncy.get('h3 strong').then(function (element) {\n  var amount = element.text();\n  var res = amount.split(\" \");\n  var total = res[1].trim();\n  expect(Number(total)).to.equal(sum);\n});\nproductsPage.getcheckoutbutton().click();\nproductsPage.getCountry().type('India');\nproductsPage.getDropdown().click();\nproductsPage.getCheckBox().click({\n  force: true\n});\nproductsPage.getPurchase().click();\nproductsPage.GetMessageSuccess().then(function (element) {\n  var actualText = element.text();\n  expect(actualText.includes(\"Success\")).to.be.true;\n});",
+              "err": {},
+              "uuid": "4b6689ea-b4fc-4da3-9858-85fcc375352c",
+              "parentUUID": "5dc84501-2488-4726-9995-c5293a65783e",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "4b6689ea-b4fc-4da3-9858-85fcc375352c"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 14576,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "5.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false
+      },
+      "version": "4.1.0"
+    },
+    "marge": {
+      "options": {},
+      "version": "4.0.1"
+    }
+  }
+}
